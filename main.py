@@ -1,22 +1,16 @@
-from time import sleep
-
 import data
 import time
 from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.chrome.options import Options
-
-# Importa ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-# no modificar
+
 def retrieve_phone_code(driver) -> str:
     """Este código devuelve un número de confirmación de teléfono y lo devuelve como un string.
     Utilízalo cuando la aplicación espere el código de confirmación para pasarlo a tus pruebas.
@@ -67,13 +61,6 @@ class UrbanRoutesPage:
     amount_of_ice_cream = (By.XPATH, "//*[@id='root']/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]")
     btn_request_taxi = (By.XPATH, "//*[@id='root']/div/div[3]/div[4]/button")
     window_order = (By.XPATH, "//*[@id='root']/div/div[5]/div[2]")
-
-
-
-
-
-
-
 
     def __init__(self, driver):
         self.driver = driver
@@ -149,9 +136,6 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.btn_request_taxi).click()
 
 
-
-
-
 class TestUrbanRoutes:
 
     driver = None
@@ -161,11 +145,7 @@ class TestUrbanRoutes:
     def setup_class(cls):
         chrome_options = Options()
         chrome_options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
-
-        # no lo modifiques, ya que necesitamos un registro adicional habilitado para recuperar el código de confirmación del teléfono
-
         cls.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-
         #Espera de 2 segundos para asegurar la carga de los componentes antes de que se ejecuten las pruebas
         cls.driver.implicitly_wait(2)
         # Inicializar la instancia de UrbanRoutesPage una vez para todas las pruebas
@@ -186,11 +166,8 @@ class TestUrbanRoutes:
 
     # 2. Seleccionar la tarifa Comfort
     def test_set_tcard(self):
-        # Seleccionar la tarifa Comfort
         self.routes_page.click_btn_taxi()
         self.routes_page.click_comfort_tariff()
-
-        # Verificar que la tarifa Comfort fue seleccionada correctamente
         comfort_tariff = self.driver.find_element(*self.routes_page.comfort_tariff)
         assert "active" in comfort_tariff.get_attribute(
             "class"), "La tarifa 'Comfort' no fue seleccionada correctamente"
