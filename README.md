@@ -1,23 +1,25 @@
-# Proyecto de Pruebas Automáticas - Urban Routes
+# Automated Testing Project - Urban Routes
 
-Este proyecto consiste en la automatización de pruebas de una aplicación web que simula la solicitud de un taxi y la selección de servicios adicionales, como el pedido de helados y mantas. Las pruebas están construidas utilizando `pytest` como marco de pruebas, `selenium` para la interacción con el navegador, y `webdriver-manager` para la gestión del controlador del navegador.
+This project involves the automation of tests for a web application that simulates requesting a taxi and selecting additional services, such as ordering ice cream and blankets. The tests are built using `pytest` as the testing framework, `selenium` for browser interaction, and `webdriver-manager` for managing the browser driver.
 
-## Estructura del Proyecto
+## Project Structure
 
-- `UrbanRoutesPage`: Clase que define los localizadores y métodos para interactuar con los elementos de la página web.
-- `TestUrbanRoutes`: Clase que contiene los tests que verifican las funcionalidades de la aplicación.
+- `UrbanRoutesPage`: Class that defines the locators and methods to interact with the elements of the web page.
+- `TestUrbanRoutes`: Class that contains the tests that verify the functionalities of the application.
 
-## Instalación
+## Installation
 
-### Prerrequisitos
+### Prerequisites
 
-- Python 3.8 o superior
-- Google Chrome instalado
+- Python 3.8 or higher
+- Google Chrome installed
 
-### Dependencias
+### Dependencies
 
-Instalar las dependencias necesarias ejecutando el siguiente comando:
-    
+Install the necessary dependencies by running the following command:
+
+```bash
     pip install -r requirements.txt
+
 
 
